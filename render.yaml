@@ -1,0 +1,26 @@
+# Render Blueprint for LiteLLM Gateway
+# Deploy with: render blueprint apply
+
+services:
+  - type: web
+    name: litellm-gateway
+    runtime: docker
+    region: oregon
+    plan: standard
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: XAI_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: MOONSHOT_API_KEY
+        sync: false
+      - key: LITELLM_MASTER_KEY
+        sync: false
+    autoDeploy: true
