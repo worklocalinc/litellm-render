@@ -1,3 +1,1 @@
-litellm[proxy]>=1.0.0
-uvicorn
-gunicorn
+litellm[proxy]==1.56.4
