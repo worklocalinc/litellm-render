@@ -1,12 +1,15 @@
 # Render Blueprint for LiteLLM Gateway
 # Deploy with: render blueprint apply
+# Domain: ai.shared.com
 
 services:
   - type: web
     name: litellm-gateway
-    runtime: docker
+    runtime: python
     region: oregon
     plan: standard
+    buildCommand: pip install -r requirements.txt
+    startCommand: litellm --config config.yaml --port $PORT --host 0.0.0.0
     healthCheckPath: /health
     envVars:
       - key: OPENAI_API_KEY
